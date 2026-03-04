@@ -1,0 +1,586 @@
+.coordinators-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, rgba(8, 12, 25, 0.98), rgba(15, 20, 40, 0.98));
+  color: #e8faff;
+}
+
+.coordinators-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  /* very large gap between boxes */
+  align-items: stretch;
+}
+
+.coord-card {
+  position: relative;
+  padding: 0;
+  border-radius: 12px;
+  overflow: visible;
+  background: transparent;
+}
+
+.coord-heading {
+  font-size: 1.6rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00d9ff, #a66bff, #ff5adf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.staff-card {}
+
+.student-card {}
+
+/* animated gradient border */
+.coord-card::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  z-index: 0;
+  border-radius: 18px;
+  /* subtle outer glow only */
+  background: radial-gradient(circle at 20% 20%, rgba(0, 217, 255, 0.12), transparent 20%), radial-gradient(circle at 80% 80%, rgba(150, 80, 255, 0.12), transparent 20%);
+  filter: blur(18px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+@keyframes borderShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.coord-list {
+  position: relative;
+  z-index: 2;
+}
+
+.coord-row {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.coord-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
+  height: 100%;
+}
+
+.coord-contact {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  height: 100%;
+  font-size: 0.95rem;
+  margin-top: 0;
+}
+
+.coord-name {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #ffffff;
+}
+
+.coord-role {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-left: 0;
+}
+
+.coord-contact a {
+  color: #e8faff;
+  text-decoration: none;
+}
+
+.coord-contact .icon {
+  display: inline-block;
+  width: 20px;
+}
+
+.coord-inner {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: #061633;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.01);
+  color: inherit;
+}
+
+.contact-box svg {
+  display: block;
+}
+
+.coord-contact a {
+  margin-left: 6px;
+}
+
+/* force both phone and whatsapp boxes inside a card to use the card's tint */
+.staff-card .phone-box::before,
+.staff-card .wa-box::before {
+  background: linear-gradient(90deg, rgba(0, 217, 255, 1), rgba(0, 255, 200, 0.9));
+}
+
+.staff-card .contact-box,
+.staff-card .phone-box,
+.staff-card .wa-box {
+  color: #00d9ff;
+}
+
+.staff-card .contact-box svg {
+  stroke: #00d9ff;
+  color: #00d9ff;
+}
+
+.student-card .phone-box::before,
+.student-card .wa-box::before {
+  background: linear-gradient(90deg, rgba(120, 60, 240, 1), rgba(200, 100, 255, 0.9));
+}
+
+.student-card .contact-box,
+.student-card .phone-box,
+.student-card .wa-box {
+  color: #a66bff;
+}
+
+.student-card .contact-box svg {
+  stroke: #a66bff;
+  color: #a66bff;
+}
+
+/* gap between phone and WhatsApp icon */
+.coord-contact .wa-link {
+  margin-left: 0.4rem;
+}
+
+/* outer animated glow per card */
+.staff-card {
+  animation: staffGlow 4.5s ease-in-out infinite;
+}
+
+.student-card {
+  animation: studentGlow 4.5s ease-in-out infinite;
+}
+
+@keyframes staffGlow {
+  0% {
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.06), 0 0 0 rgba(0, 217, 255, 0);
+  }
+
+  50% {
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.18), 0 0 40px rgba(0, 217, 255, 0.08);
+  }
+
+  100% {
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.06), 0 0 0 rgba(0, 217, 255, 0);
+  }
+}
+
+@keyframes studentGlow {
+  0% {
+    box-shadow: 0 8px 24px rgba(120, 60, 240, 0.05), 0 0 0 rgba(120, 60, 240, 0);
+  }
+
+  50% {
+    box-shadow: 0 20px 60px rgba(120, 60, 240, 0.16), 0 0 40px rgba(120, 60, 240, 0.08);
+  }
+
+  100% {
+    box-shadow: 0 8px 24px rgba(120, 60, 240, 0.05), 0 0 0 rgba(120, 60, 240, 0);
+  }
+}
+
+/* subtle halo using pseudo-element for a light sweep */
+.coord-card::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+  /* animated gradient border only — mask out the center so interior stays transparent */
+  background: linear-gradient(90deg, rgba(0, 217, 255, 1), rgba(120, 60, 240, 1), rgba(255, 90, 180, 1));
+  background-size: 200% 100%;
+  padding: 3px;
+  /* thickness of the border */
+  -webkit-mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderShift 6s linear infinite;
+}
+
+@keyframes haloSweep {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.6;
+  }
+
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.95;
+  }
+
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.6;
+  }
+}
+
+/* tune per-card pseudo-element tinting */
+.staff-card::before {
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.95), rgba(0, 255, 200, 0.6));
+}
+
+.student-card::before {
+  background: linear-gradient(90deg, rgba(120, 60, 240, 0.95), rgba(200, 100, 255, 0.6));
+}
+
+/* page title */
+.page-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin: 0 0 3rem 0;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #00d9ff, #a66bff, #ff5adf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 6px 30px rgba(100, 80, 200, 0.08);
+}
+
+/* staff left card: stronger aqua tint */
+.staff-card::after {
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.8), rgba(0, 255, 200, 0.6));
+  filter: blur(6px);
+}
+
+/* students right card: purple tint */
+.student-card::after {
+  background: linear-gradient(90deg, rgba(120, 60, 240, 0.8), rgba(200, 100, 255, 0.6));
+  filter: blur(6px);
+}
+
+/* web creators: 2 columns, matrix + popup animations */
+.creators-section-container {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.creators-main-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00d9ff, #ff5adf, #a66bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: neonPulseMatrix 3s infinite alternate;
+}
+
+.creators-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  perspective: 1000px;
+}
+
+.creator-card {
+  position: relative;
+  overflow: visible;
+  border-radius: 12px;
+  background: transparent;
+  animation: popupCard 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  z-index: 10;
+}
+
+/* Base glow using pseudo elements matching Coordinators */
+.creator-card::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.95), rgba(255, 90, 223, 0.6));
+  background-size: 200% 100%;
+  padding: 3px;
+  -webkit-mask: linear-gradient(#fff, #fff) content-box, linear-gradient(#fff, #fff);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderShift 6s linear infinite;
+}
+
+.creator-card::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  z-index: 0;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(0, 217, 255, 0.8), rgba(255, 90, 223, 0.6));
+  filter: blur(18px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Main card repeating pulse (matches the style of staffGlow) */
+.creator-card {
+  animation: creatorGlow 4.5s ease-in-out infinite, popupCard 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+}
+
+/* Slight delay for second card entrance */
+.creator-card:nth-child(2) {
+  animation: creatorGlow 4.5s ease-in-out infinite, popupCard 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards 0.2s;
+}
+
+.creator-card:hover {
+  transform: translateY(-15px) scale(1.05) rotateX(5deg);
+  z-index: 15;
+}
+
+/* Hover intensifying the glow */
+.creator-card:hover::after {
+  filter: blur(25px);
+  opacity: 1;
+}
+
+.creator-card .coord-inner {
+  background: rgba(8, 12, 25, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 3rem 2rem;
+  height: 100%;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* Contains the matrix */
+  z-index: 2;
+}
+
+.creator-info {
+  text-align: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.creator-card .coord-name {
+  font-size: 1.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+/* Text glow up on hover */
+.creator-card:hover .coord-name {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 217, 255, 0.9), 0 0 30px rgba(255, 90, 223, 0.6);
+}
+
+.creator-card .coord-role {
+  color: #e8faff;
+  font-size: 1.1rem;
+}
+
+/* Matrix Background Effect / Blue-Pink rain */
+.matrix-overlay {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 300%;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0, 217, 255, 0.05) 40%, rgba(255, 90, 223, 0.3) 50%, transparent 55%),
+    repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0, 217, 255, 0.05) 21px, rgba(255, 90, 223, 0.05) 22px);
+  background-size: 100% 50%, 100% 100%;
+  z-index: 1;
+  opacity: 0.7;
+  animation: matrixFall 4s linear infinite;
+  pointer-events: none;
+}
+
+.creator-card:nth-child(2) .matrix-overlay {
+  animation-duration: 3s;
+  animation-delay: -1s;
+}
+
+@keyframes matrixFall {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(33.33%);
+  }
+}
+
+@keyframes popupCard {
+  0% {
+    transform: scale(0.6) translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes creatorGlow {
+  0% {
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.05), 0 0 0 rgba(0, 217, 255, 0);
+  }
+
+  50% {
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.16), 0 0 40px rgba(255, 90, 223, 0.08);
+  }
+
+  100% {
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.05), 0 0 0 rgba(0, 217, 255, 0);
+  }
+}
+
+@keyframes neonPulseMatrix {
+  from {
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(255, 90, 223, 0.3);
+  }
+
+  to {
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.8), 0 0 30px rgba(255, 90, 223, 0.5);
+  }
+}
+
+
+/* responsive */
+@media (max-width: 900px) {
+
+  .coordinators-wrapper,
+  .creators-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .coord-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coord-contact {
+    width: 100%;
+  }
+
+  .coord-heading {
+    font-size: 1.4rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .coordinators-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .coordinators-wrapper {
+    gap: 2rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+
+  .coord-heading {
+    font-size: 1.2rem;
+  }
+
+  .coord-name,
+  .creator-card .coord-name {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .coord-role,
+  .creator-card .coord-role {
+    font-size: 0.82rem;
+  }
+
+  .coord-contact {
+    font-size: 0.85rem;
+  }
+
+  .coord-inner,
+  .creator-card .coord-inner {
+    padding: 1.5rem 1rem;
+  }
+
+  .creators-main-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .page-title {
+    font-size: 1.3rem;
+  }
+
+  .coord-heading {
+    font-size: 1.05rem;
+  }
+
+  .coord-name,
+  .creator-card .coord-name {
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .creators-main-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}

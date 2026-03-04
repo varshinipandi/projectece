@@ -1,0 +1,265 @@
+.footer {
+  position: relative;
+  background: linear-gradient(135deg, rgba(10, 15, 30, 0.98) 0%, rgba(25, 35, 60, 0.98) 100%);
+  border-top: 2px solid #00d9ff;
+  color: #e0e0e0;
+  padding: 4rem 2rem 2rem;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d9ff, transparent);
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  color: #00d9ff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 2px;
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  color: #ff00ff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #b0b0b0;
+  margin: 0 0 1.5rem 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.footer-section a {
+  color: #00d9ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-section a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00d9ff;
+  transition: width 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ff00ff;
+}
+
+.footer-section a:hover::after {
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #00d9ff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #00d9ff;
+  z-index: -1;
+  transition: left 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0a0f1e;
+  border-color: #ff00ff;
+}
+
+.social-links a:hover::before {
+  left: 0;
+  background: #ff00ff;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.5), transparent);
+  margin-bottom: 2rem;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #808080;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-credits {
+  font-size: 0.85rem;
+  color: #808080;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.heart {
+  color: #ff00ff;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  margin: 0 0.3rem;
+  display: inline-block;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.3);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.footer-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glow-element {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -200px;
+  left: 10%;
+  animation: footerGlow 8s ease-in-out infinite;
+}
+
+@keyframes footerGlow {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(50px, -50px);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section h4 {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0.75rem 1rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section p,
+  .footer-section li {
+    font-size: 0.82rem;
+  }
+
+  .copyright,
+  .footer-credits {
+    font-size: 0.75rem;
+  }
+
+  .social-links a {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+}

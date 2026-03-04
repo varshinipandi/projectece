@@ -1,0 +1,1036 @@
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.40) contrast(1.0) saturate(0.5);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.bg-video.loaded {
+  opacity: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.45) 100%);
+  z-index: 2;
+}
+
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  /* perfect balance */
+  z-index: 1;
+}
+
+.hero-content {
+  color: #ffffff;
+}
+
+.circuit-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.15;
+}
+
+.circuit-svg {
+  width: 100%;
+  height: 100%;
+  stroke: #00d9ff;
+  fill: none;
+  filter: drop-shadow(0 0 10px #00d9ff);
+}
+
+.circuit-lines {
+  stroke-linecap: round;
+  animation: drawCircuit 8s ease-in-out infinite;
+}
+
+.circuit-node {
+  fill: #00d9ff;
+  animation: nodeGlow 2s ease-in-out infinite;
+}
+
+@keyframes drawCircuit {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes nodeGlow {
+
+  0%,
+  100% {
+    r: 8;
+  }
+
+  50% {
+    r: 12;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  animation: fadeInUp 1.5s ease-out;
+  max-width: 900px;
+  padding: 0 2rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.college-info {
+  margin-bottom: 2rem;
+}
+
+.college-name {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #00d9ff, #ff00ff, #00d9ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  text-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+}
+
+.college-subtitle {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin: 0.5rem 0;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.college-affiliation {
+  font-size: 0.95rem;
+  color: #00d9ff;
+  margin: 0.5rem 0 2rem 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.event-header {
+  margin: 2rem 0;
+}
+
+.event-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #ff00ff, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  animation: slideInUp 1.5s ease-out 0.2s backwards;
+}
+
+.event-quote {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  margin: 2rem 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-style: italic;
+  line-height: 1.6;
+  animation: slideInUp 1.5s ease-out 0.4s backwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #000;
+  background: linear-gradient(135deg, #00d9ff, #ff00ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+  animation: slideInUp 1.5s ease-out 0.6s backwards;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 0, 255, 0.6);
+}
+
+.cta-button:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.animated-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00d9ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00d9ff;
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+.glow-orbs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: orbMove 8s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 300px;
+  height: 300px;
+  background: #00d9ff;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 250px;
+  height: 250px;
+  background: #ff00ff;
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  background: #00d9ff;
+  bottom: 10%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes orbMove {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(50px, -50px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 60px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .college-name {
+    font-size: 2.5rem;
+  }
+
+  .college-subtitle {
+    font-size: 1rem;
+  }
+
+  .event-title {
+    font-size: 2rem;
+  }
+
+  .event-quote {
+    font-size: 1rem;
+  }
+
+  .orb {
+    filter: blur(40px);
+    opacity: 0.3;
+  }
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* full screen */
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* cover entire section */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.hero-overlay h1 {
+  font-size: 4rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* HERO SECTION MAIN */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* VIDEO BACKGROUND */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.bg-video.loaded {
+  opacity: 1;
+}
+
+/* DARK OVERLAY */
+.video-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right,
+      rgba(0, 0, 0, 0.7),
+      rgba(10, 0, 40, 0.7));
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-logo {
+  width: 320px;
+  /* adjust if needed */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+
+  /* Vibrant Blue + Pink Glow */
+  filter: drop-shadow(0 0 15px #31edfa) drop-shadow(0 0 25px #f618c9) drop-shadow(0 0 40px rgba(29, 81, 238, 0.6));
+
+  /* Smooth Floating Animation */
+  animation: floatLogo 4s ease-in-out infinite;
+
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Extra Glow on Hover */
+.hero-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 25px #00f0ff) drop-shadow(0 0 35px #ff00cc) drop-shadow(0 0 60px rgba(255, 0, 200, 0.8));
+}
+
+/* Floating Animation */
+@keyframes floatLogo {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* QUOTE */
+.event-quote {
+  margin-top: 20px;
+  font-style: italic;
+  color: #ff5cff;
+  font-size: 18px;
+}
+
+/* BUTTON */
+.cta-button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(to right, #00eaff, #b14cff);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+}
+
+/* PARTICLES */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00eaff;
+  border-radius: 50%;
+  bottom: -10px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* GLOW ORBS */
+.orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #b14cff, transparent);
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -2;
+}
+
+.orb-1 {
+  top: 10%;
+  left: 5%;
+}
+
+.orb-2 {
+  bottom: 15%;
+  right: 10%;
+}
+
+.orb-3 {
+  top: 50%;
+  right: 40%;
+}
+
+/* COUNTDOWN CONTAINER */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  /* Reduced gap */
+  margin-top: 2px !important;
+}
+
+/* 🔥 Calendar Style Box */
+.time-box {
+  position: relative;
+  background: #070b1f;
+  border: 2px solid #00eaff;
+  /* Thin clean border */
+  padding: 12px 14px;
+  /* Smaller padding */
+  border-radius: 12px;
+  min-width: 85px;
+  /* Smaller width */
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+/* Calendar Top Strip */
+.time-box::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 15%;
+  width: 70%;
+  height: 8px;
+  background: #00eaff;
+  border-radius: 4px;
+}
+
+/* Hover subtle effect */
+.time-box:hover {
+  transform: translateY(-3px);
+  border-color: #ff00ff;
+}
+
+/* Number */
+.time-box h3 {
+  font-size: 30px;
+  /* Smaller number */
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00eaff, #b14cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Label */
+.time-box span {
+  font-size: 11px;
+  /* Smaller text */
+  letter-spacing: 1.5px;
+  color: #dcdcff;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Event Date (Readable size now) */
+.event-date {
+  margin-top: 6px !important;
+  font-size: 10px !important;
+  letter-spacing: 1px !important;
+  color: #00eaff !important;
+  font-weight: 400 !important;
+  margin-top: 6px !important;
+  margin: 0px !important;
+  padding: 6px 8px;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #03181c, #000000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-logo {
+  width: 250px;
+  margin-bottom: 0px;
+  margin-top: 40px;
+}
+
+.college-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 68px;
+  font-weight: bold;
+}
+
+.college-logo {
+  width: 80px;
+}
+
+.college-subtitle {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.event-title {
+  margin-top: 20px;
+  font-size: 45px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #03f8fc, rgb(168, 5, 249), rgb(226, 247, 4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* COUNTDOWN DESIGN - SMALL VERSION */
+
+.countdown-wrapper {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  /* reduced gap */
+}
+
+.timer-box {
+  width: 90px;
+  /* reduced from 120px */
+  height: 90px;
+  /* reduced from 120px */
+  border-radius: 12px;
+  background: #0c1f23;
+  border: 2px solid #00eaff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+}
+
+.timer-box h3 {
+  font-size: 26px;
+  /* reduced from 36px */
+  margin: 0;
+  color: #00eaff;
+}
+
+.timer-box span {
+  margin-top: 4px;
+  font-size: 12px;
+  /* reduced from 14px */
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.timer-box.highlight {
+  border: 2px solid #fe0bfe;
+  box-shadow: 0 0 15px #ff5cff;
+}
+
+.timer-box.highlight h3 {
+  color: #fe0bfe;
+}
+
+.colon {
+  font-size: 28px;
+  /* reduced from 40px */
+  font-weight: bold;
+  color: #00eaff;
+}
+
+/* Hover Effect */
+.timer-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.6);
+}
+
+/* REGISTRATION LEFT BOX - SMALL VERSION */
+
+.registration-box {
+  margin-top: 5px;
+  /* reduced */
+  padding: 8px 18px;
+  /* reduced from 20px 40px */
+  display: inline-block;
+  border-radius: 25px;
+  /* pill shape */
+  background: linear-gradient(90deg, #00eaff, #00ffcc, #8df4ce);
+  border: 1.5px solid #00eaff;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.4);
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.registration-box h3 {
+  font-size: 16px;
+  /* reduced from 32px */
+  font-weight: 600;
+  margin: 0;
+  color: black;
+  box-shadow: 0 0 12px rgba(0, 234, 255, 0.4);
+
+}
+
+.registration-box p {
+  display: none;
+  /* remove extra text to keep small */
+}
+
+.registration-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(0, 234, 255, 0.7);
+}
+
+
+
+
+
+
+
+/* HERO SECTION CLEAN VERSION */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 60px;
+}
+
+/* VIDEO BACKGROUND */
+.video-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* VERY IMPORTANT */
+}
+
+/* DARK OVERLAY */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  max-width: 95%;
+}
+
+/* EVENT CARD MAIN */
+.event-card {
+  display: flex;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* TEXT SIDE */
+.event-content {
+  flex: 1;
+  padding: 25px;
+}
+
+/* IMAGE SIDE */
+.event-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== TABLET (768px – 1024px) ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-logo {
+    width: 200px;
+  }
+
+  .college-name {
+    font-size: 42px;
+  }
+
+  .event-title {
+    font-size: 34px;
+  }
+
+  .countdown-wrapper {
+    gap: 10px;
+  }
+
+  .timer-box {
+    width: 76px;
+    height: 76px;
+  }
+
+  .timer-box h3 {
+    font-size: 22px;
+  }
+}
+
+/* ===== MOBILE (≤ 768px) ===== */
+@media (max-width: 768px) {
+
+  .hero-section {
+    min-height: 100vh;
+    padding: 40px 12px 20px;
+  }
+
+  .hero-logo {
+    width: 140px;
+    margin-top: 20px;
+  }
+
+  .event-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  .college-name {
+    font-size: 18px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .college-logo {
+    width: 50px;
+  }
+
+  .college-subtitle {
+    font-size: 10px;
+  }
+
+  /* Countdown wrapper */
+  .countdown-wrapper {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .timer-box {
+    width: 68px;
+    height: 68px;
+  }
+
+  .timer-box h3 {
+    font-size: 20px;
+  }
+
+  .timer-box span {
+    font-size: 9px;
+  }
+
+  .colon {
+    font-size: 20px;
+  }
+
+  /* Registration box */
+  .registration-box {
+    padding: 6px 14px;
+    margin-top: 10px;
+  }
+
+  .registration-box h3 {
+    font-size: 13px;
+  }
+
+  /* Time box (alternate countdown) */
+  .time-box {
+    min-width: 68px;
+    padding: 10px;
+  }
+
+  .time-box h3 {
+    font-size: 22px;
+  }
+
+  .time-box span {
+    font-size: 9px;
+  }
+
+  .countdown-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Event card in hero area */
+  .event-card {
+    flex-direction: column;
+  }
+
+  .event-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .event-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Hero content padding */
+  .hero-content {
+    padding: 10px;
+    max-width: 100%;
+  }
+}
+
+
+/* NOTE: bg-video is positioned by .video-background container, no fixed positioning here */

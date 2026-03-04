@@ -1,0 +1,133 @@
+/* HEADER BASE */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 9999;
+
+  /* BLUE / DARK GRADIENT */
+  background: linear-gradient(
+    135deg,
+    rgba(5, 15, 40, 0.95),
+    rgba(0, 40, 80, 0.95)
+  );
+
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+/* WHEN SCROLLED */
+.header.scrolled {
+  background: linear-gradient(
+    135deg,
+    rgba(5, 15, 40, 0.98),
+    rgba(0, 30, 70, 0.98)
+  );
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.35);
+}
+
+/* CONTAINER */
+.header-container {
+  max-width: 1400px;
+  height: 100%;
+  margin: auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  background: linear-gradient(135deg, #00d9ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+}
+
+/* NAV */
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAV LINKS */
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  position: relative;
+  padding: 5px 0;
+}
+
+/* UNDERLINE ANIMATION */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #00d9ff, #ff00ff);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #00d9ff;
+  cursor: pointer;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background:
+      rgba(5, 15, 40, 0.98);
+    display: none;
+  }
+
+  .nav.active {
+    display: block;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    gap: 1.5rem;
+  }
+}
